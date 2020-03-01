@@ -31,7 +31,7 @@ int main() {
             break;
             }
         case 2: {
-            TabsToSort.QuickSort();
+            TabsToSort.MergeSort();
             TabsToSort.Show();
             std::cout << std::endl;
             break;

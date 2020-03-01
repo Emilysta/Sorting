@@ -1,7 +1,7 @@
 #include "QuickSort.h"
 #include "MergeSort.h"
 #include <iostream>
-#define COUNT 100 
+#define COUNT 10
 template < typename T, int Size>
 class Tables {
   T Tab[COUNT][Size];
@@ -14,16 +14,16 @@ class Tables {
   //funkvja wyświetlająca
   void Show();
   void QuickSort();
+  void MergeSort();
   };
 
-/**************************************************************************/
 template < typename T , int Size >
 Tables<T, Size>::Tables(){
     for(int i=0;i<COUNT;i++)
         for(int j=0;j<Size;j++)
             Tab[i][j]=rand()%10;
 }
-/**************************************************************************/
+
 template < typename T , int Size >
 void Tables<T, Size>::Show(){
     for(int i=0;i<COUNT;i++){
@@ -34,9 +34,15 @@ void Tables<T, Size>::Show(){
         std::cout<<"\n";
     }
 }
-/**************************************************************************/
+
 template < typename T , int Size >
 void Tables<T, Size>::QuickSort(){
     for(int i=0;i<COUNT;i++)
         quicksort(Tab[i],0, Size-1);
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::MergeSort() {
+    for (int i = 0; i < COUNT; i++)
+        mergesort(Tab[i], 0, Size-1);
 }

@@ -3,7 +3,7 @@
 template < typename T>
 int division(T Table[], int first, int last) {
     int pivot = (last - first) / 2 + first;
-    int piv = Table[pivot];
+    T piv = Table[pivot];
     int l = first, r = last;
     while (true) {
         while (Table[l] < piv)
