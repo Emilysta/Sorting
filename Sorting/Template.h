@@ -1,5 +1,6 @@
 #include "QuickSort.h"
 #include "MergeSort.h"
+#include "HeapSort.h"
 #include <iostream>
 #define COUNT 10
 template < typename T, int Size>
@@ -11,10 +12,11 @@ class Tables {
   Tables();
   ///destruktor
   ~Tables()=default;
-  //funkvja wyświetlająca
+  //funkcja wyświetlająca
   void Show();
   void QuickSort();
   void MergeSort();
+  void HeapSort();
   };
 
 template < typename T , int Size >
@@ -45,4 +47,10 @@ template < typename T, int Size >
 void Tables<T, Size>::MergeSort() {
     for (int i = 0; i < COUNT; i++)
         mergesort(Tab[i], 0, Size-1);
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::HeapSort() {
+	for (int i = 0; i < COUNT; i++)
+		heapsort(Tab[i],Size);
 }

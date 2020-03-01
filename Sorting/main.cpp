@@ -1,11 +1,11 @@
 #include <iostream>
 #include <time.h>
 #include "TypesOfTables.h"
-
+#include "HeapSort.h"
 void menu() {
     std::cout << "1.Quicksort\n";
     std::cout << "2.Mergesort\n";
-    std::cout << "3.Introsort\n";
+    std::cout << "3.Heapsort\n";
     std::cout << "4.End\n";
 }
 
@@ -37,7 +37,7 @@ int main() {
             break;
             }
         case 3: {
-            TabsToSort.QuickSort();
+            TabsToSort.HeapSort();
             TabsToSort.Show();
             std::cout << std::endl;
             break;
