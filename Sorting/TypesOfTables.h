@@ -1,5 +1,5 @@
 #pragma once
-#include "Template.hh"
+#include "Template.h"
 /*****************************************************************/
 /*!
  * \file TypesOfTables.hh
@@ -10,7 +10,8 @@
  *  -Tables500k
  *  -Tables1M
  */
-    using Tables5 = Tables<int,5>; //Testowa 10 tablic po 100 elementow
+    using Tables5 = Tables<int,5>; //Testowa 10 tablic po 5 elementow
+    using Tables10 = Tables<int, 10>; //Testowa 10 tablic po 10 elementow
     using Tables10k = Tables<int,10000>;
     using Tables50k = Tables<int,50000>;
     using Tables100k = Tables<int,100000>;

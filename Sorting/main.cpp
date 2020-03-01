@@ -1,17 +1,57 @@
 #include <iostream>
-//#include "Class.hh"
 #include <time.h>
-#include "TypesOfTables.hh"
+#include "TypesOfTables.h"
+
+void menu() {
+    std::cout << "1.Quicksort\n";
+    std::cout << "2.Mergesort\n";
+    std::cout << "3.Introsort\n";
+    std::cout << "4.End\n";
+}
 
 /**************************************************************************************************/
 int main() {
-    std::srand( time(NULL));
-    Tables5 TabsToSort; //Tablice do posortowania
+    std::srand( time(nullptr) );
+    Tables10 TabsToSort; //Tablice do posortowania
     TabsToSort.Show();
-    TabsToSort.QuickSort(1);
-    std::cout<<std::endl;
-   TabsToSort.Show();
-   std::cin.get();
-    return 0;
+    //std::cout<<std::endl;
+    
+    int option;
+    menu();
+    std::cout << "Choose an option: ";
+    std::cin >> option;
 
+    while (option != 4) {
+        switch (option)
+        {
+        case 1: {
+            TabsToSort.QuickSort();
+            TabsToSort.Show();
+            std::cout << std::endl;
+            break;
+            }
+        case 2: {
+            TabsToSort.QuickSort();
+            TabsToSort.Show();
+            std::cout << std::endl;
+            break;
+            }
+        case 3: {
+            TabsToSort.QuickSort();
+            TabsToSort.Show();
+            std::cout << std::endl;
+            break;
+            }
+        case 4: break;
+        default: {
+            std::cout << "Wrong option! ";
+            break;
+            }
+
+        }
+        menu();
+        std::cout << "Choose again: ";
+        std::cin >> option;
+    }
+    return 0;
 }

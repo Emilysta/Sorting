@@ -23,13 +23,16 @@
     <ClInclude Include="Class.hh">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="QuickSort.hh">
+    <ClInclude Include="MergeSort.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="Template.hh">
+    <ClInclude Include="Template.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
-    <ClInclude Include="TypesOfTables.hh">
+    <ClInclude Include="QuickSort.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
+    <ClInclude Include="TypesOfTables.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
