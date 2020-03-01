@@ -3,15 +3,15 @@
 /*****************************************************************/
 /*!
  * \file TypesOfTables.hh
- * \brief Plik zawiera instancje klasy Tables: 
+ * \brief This file have instances of class Tables: 
  *  -Tables10k
  *  -Tables50k
  *  -Tables100k
  *  -Tables500k
  *  -Tables1M
  */
-    using Tables5 = Tables<int,5>; //Testowa 10 tablic po 5 elementow
-    using Tables10 = Tables<int, 10>; //Testowa 10 tablic po 10 elementow
+    using Tables5 = Tables<int,5>; //For tests
+    using Tables10 = Tables<int, 10>; //for tests
     using Tables10k = Tables<int,10000>;
     using Tables50k = Tables<int,50000>;
     using Tables100k = Tables<int,100000>;

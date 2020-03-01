@@ -2,26 +2,28 @@
 #include <time.h>
 #include "TypesOfTables.h"
 #include "HeapSort.h"
+#include "QuickSort.h"
+#include "MergeSort.h"
 void menu() {
     std::cout << "1.Quicksort\n";
     std::cout << "2.Mergesort\n";
     std::cout << "3.Heapsort\n";
-    std::cout << "4.End\n";
+	std::cout << "4.Introsort\n";
+    std::cout << "5.End\n";
 }
 
 /**************************************************************************************************/
 int main() {
     std::srand( time(nullptr) );
-    Tables10 TabsToSort; //Tablice do posortowania
+    Tables10 TabsToSort; //to sort
     TabsToSort.Show();
-    //std::cout<<std::endl;
-    
+
     int option;
     menu();
     std::cout << "Choose an option: ";
     std::cin >> option;
 
-    while (option != 4) {
+    while (option != 5) {
         switch (option)
         {
         case 1: {
@@ -42,7 +44,13 @@ int main() {
             std::cout << std::endl;
             break;
             }
-        case 4: break;
+		case 4: {
+			TabsToSort.IntroSort();
+			TabsToSort.Show();
+			std::cout << std::endl;
+			break;
+		}
+        case 5: break;
         default: {
             std::cout << "Wrong option! ";
             break;

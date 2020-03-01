@@ -1,7 +1,7 @@
 #pragma once
 #include <utility>
 template < typename T>
-void setMax(T tableToSort,int heapSize, int index) { //index of Parent
+void setMaxHeap(T tableToSort,int heapSize, int index) { //index of Parent
 	int maxIndex = index;
 	int leftFromIndex = 2 * index + 1;
 	int rightFromIndex = 2 * index + 2;
@@ -13,7 +13,7 @@ void setMax(T tableToSort,int heapSize, int index) { //index of Parent
 	}
 	if (maxIndex != index) {
 		std::swap(tableToSort[maxIndex], tableToSort[index]);
-		setMax(tableToSort, heapSize, maxIndex);
+		setMaxHeap(tableToSort, heapSize, maxIndex); //if it's now okey?
 	}
 }
 template < typename T>
@@ -21,10 +21,10 @@ void heapsort(T tableToSort,int size) {
 	int n = size;
 	int lastParent = n / 2 - 1;
 	for (int i = lastParent; i >= 0; i--) {
-		setMax(tableToSort, n, i);				//maksymalny kopiec
+		setMaxHeap(tableToSort, n, i);				//max Heap?
 	}
 	for (int i = n - 1; i > 0; i--) {
 		std::swap(tableToSort[0], tableToSort[i]);
-		setMax(tableToSort, --n, 0);
+		setMaxHeap(tableToSort, --n, 0);
 	}
 }
