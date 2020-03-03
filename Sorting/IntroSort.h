@@ -6,11 +6,11 @@
 
 
 template < typename T>
-int sort(T tableToSort,int maxDepth, int first, int last) {
+void sort(T tableToSort,int maxDepth, int first, int last) {
 	int n = last - first + 1;
 	int pivot;
-	if (n<=1) {
-		return 0;
+	if (n<=10) {
+		quicksort(tableToSort, first, last);
 	}
 	else if (maxDepth == 0) {
 		heapsort(tableToSort, first, last);
@@ -21,6 +21,7 @@ int sort(T tableToSort,int maxDepth, int first, int last) {
 		sort(tableToSort, maxDepth - 1, first, pivot);
 		sort(tableToSort, maxDepth - 1, pivot + 1,last);
 	}
+
 }
 template < typename T>
 void introsort(T tableToSort, int first, int last) {
