@@ -2,6 +2,7 @@
 #include "MergeSort.h"
 #include "HeapSort.h"
 #include "IntroSort.h"
+#include "IsSorted.h"
 #include <iostream>
 #define COUNT 10
 template < typename T, int Size>
@@ -19,22 +20,23 @@ class Tables {
   void MergeSort();
   void HeapSort();
   void IntroSort();
+  void isSorted();
   };
 
 template < typename T , int Size >
 Tables<T, Size>::Tables(){
     for(int i=0;i<COUNT;i++)
         for(int j=0;j<Size;j++)
-            Tab[i][j]=rand()%10;
+            Tab[i][j]=rand();
 }
 
 template < typename T , int Size >
 void Tables<T, Size>::Show(){
-    for(int i=0;i<COUNT;i++){
+    for(int i=1;i<2;i++){
         std::cout<<"Table"<<i+1;
         std::cout<<"\t";
         for(int j=0;j< Size;j++)
-            std::cout<<Tab[i][j]<<"\t";
+            std::cout<<Tab[i][j]<<"\n";
         std::cout<<"\n";
     }
 }
@@ -53,11 +55,22 @@ void Tables<T, Size>::MergeSort() {
 
 template < typename T, int Size >
 void Tables<T, Size>::HeapSort() {
+	//heapsort(Tab[1], 0, Size - 1);
 	for (int i = 0; i < COUNT; i++)
-		heapsort(Tab[i],Size);
+		heapsort(Tab[i],0, Size-1);
 }
 template < typename T, int Size >
 void Tables<T, Size>::IntroSort() {
-	for (int i = 0; i < COUNT; i++)
-		introsort(Tab[i], 0, Size-1);
+	introsort(Tab[1], 0, Size-1);
+	/*for (int i = 0; i < COUNT; i++)
+		introsort(Tab[i], 0, Size-1);*/
+}
+
+
+template < typename T, int Size >
+void Tables<T, Size>::isSorted() {
+	for (int i = 0; i < COUNT; i++) {
+		std::cout << i << ".\t";
+		issorted(Tab[i], 0, Size - 1);
+	}
 }

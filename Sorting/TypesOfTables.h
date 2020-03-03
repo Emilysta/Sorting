@@ -11,7 +11,7 @@
  *  -Tables1M
  */
     using Tables5 = Tables<int,5>; //For tests
-    using Tables10 = Tables<int, 10>; //for tests
+    using Tables1000 = Tables<int, 1000>; //for tests
     using Tables10k = Tables<int,10000>;
     using Tables50k = Tables<int,50000>;
     using Tables100k = Tables<int,100000>;

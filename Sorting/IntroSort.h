@@ -2,10 +2,8 @@
 #include <utility>
 #include "HeapSort.h"
 #include "QuickSort.h"
-#pragma once
-#include <cmath>
-#include "HeapSort.h"
-#include "QuickSort.h"
+#include "IsSorted.h"
+
 
 template < typename T>
 int sort(T tableToSort,int maxDepth, int first, int last) {
@@ -15,12 +13,13 @@ int sort(T tableToSort,int maxDepth, int first, int last) {
 		return 0;
 	}
 	else if (maxDepth == 0) {
-		heapsort(tableToSort, n);
+		heapsort(tableToSort, first, last);
+		issorted(tableToSort, first, last);
 	}
 	else {
 		pivot = division(tableToSort, first, last); //Recursive division with returning pivot
-		sort(tableToSort, maxDepth - 1, first, pivot-1);
-		sort(tableToSort, maxDepth - 1, pivot+1,last);
+		sort(tableToSort, maxDepth - 1, first, pivot);
+		sort(tableToSort, maxDepth - 1, pivot + 1,last);
 	}
 }
 template < typename T>

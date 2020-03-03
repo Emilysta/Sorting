@@ -14,9 +14,9 @@ void menu() {
 
 /**************************************************************************************************/
 int main() {
-    std::srand( time(nullptr) );
-    Tables10 TabsToSort; //to sort
-    TabsToSort.Show();
+    std::srand( (unsigned int)(time(nullptr)) );
+    Tables1000 TabsToSort; //to sort
+    //TabsToSort.Show();
 
     int option;
     menu();
@@ -28,24 +28,25 @@ int main() {
         {
         case 1: {
             TabsToSort.QuickSort();
-            TabsToSort.Show();
+			TabsToSort.isSorted();
             std::cout << std::endl;
             break;
             }
         case 2: {
             TabsToSort.MergeSort();
-            TabsToSort.Show();
+			TabsToSort.isSorted();
             std::cout << std::endl;
             break;
             }
         case 3: {
             TabsToSort.HeapSort();
-            TabsToSort.Show();
+			TabsToSort.isSorted();
             std::cout << std::endl;
             break;
             }
 		case 4: {
 			TabsToSort.IntroSort();
+			//TabsToSort.isSorted();
 			TabsToSort.Show();
 			std::cout << std::endl;
 			break;

@@ -129,6 +129,7 @@
     <ClInclude Include="Class.hh" />
     <ClInclude Include="HeapSort.h" />
     <ClInclude Include="IntroSort.h" />
+    <ClInclude Include="IsSorted.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="Template.h" />
