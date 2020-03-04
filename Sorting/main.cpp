@@ -15,9 +15,10 @@ void menu() {
 /**************************************************************************************************/
 int main() {
     std::srand( (unsigned int)(time(nullptr)) );
-    Tables100 TabsToSort; //to sort
+    Tables1M TabsToSort; //to sort
     //TabsToSort.Show();
-
+    //TabsToSort.Generate();
+    
     int option;
     menu();
     std::cout << "Choose an option: ";
@@ -47,7 +48,6 @@ int main() {
 		case 4: {
 			TabsToSort.IntroSort();
 			TabsToSort.isSorted();
-			TabsToSort.Show();
 			std::cout << std::endl;
 			break;
 		}

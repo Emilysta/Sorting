@@ -4,18 +4,20 @@
 #include "IntroSort.h"
 #include "IsSorted.h"
 #include <iostream>
-#define COUNT 10
+#include <chrono>
+#define COUNT 100
 template < typename T, int Size>
 class Tables {
-  T Tab[COUNT][Size];
-  //T TabCopy[COUNT][Size]
+  T** Tab=new T*[COUNT];
+  //T Tab[COUNT][Size];
   public:
   //constructor
   Tables();
   //destructor
-  ~Tables()=default;
+  ~Tables();
   //lets show these arrays/tables
   void Show();
+  void Generate();
   void QuickSort();
   void MergeSort();
   void HeapSort();
@@ -25,14 +27,36 @@ class Tables {
 
 template < typename T , int Size >
 Tables<T, Size>::Tables(){
+    //for(int i=0;i<COUNT;i++)
+    //    for(int j=0;j<Size;j++)
+    //        Tab[i][j]=rand();
+    for (int i = 0; i < COUNT; i++) {
+        Tab[i] = new T[Size];
+        for (int j = 0; j < Size; j++) {
+            Tab[i][j] = rand();
+        }
+    }
+
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::Generate() {
     for(int i=0;i<COUNT;i++)
         for(int j=0;j<Size;j++)
             Tab[i][j]=rand();
 }
 
+template < typename T, int Size >
+Tables<T, Size>::~Tables() {
+    for (int i = 0; i < COUNT; i++)
+        delete[] Tab[i];
+    delete[] Tab;
+}
+
+
 template < typename T , int Size >
 void Tables<T, Size>::Show(){
-    for(int i=1;i<2;i++){
+    for(int i=0;i<COUNT;i++){
         std::cout<<"Table"<<i+1;
         std::cout<<"\t";
         for(int j=0;j< Size;j++)
@@ -43,34 +67,48 @@ void Tables<T, Size>::Show(){
 
 template < typename T , int Size >
 void Tables<T, Size>::QuickSort(){
+    auto start = std::chrono::high_resolution_clock::now();
     for(int i=0;i<COUNT;i++)
         quicksort(Tab[i],0, Size-1);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    std::cout << "QuickSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 }
 
 template < typename T, int Size >
 void Tables<T, Size>::MergeSort() {
+    auto start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < COUNT; i++)
         mergesort(Tab[i], 0, Size-1);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    std::cout << "MergeSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 }
 
 template < typename T, int Size >
 void Tables<T, Size>::HeapSort() {
-	//heapsort(Tab[1], 0, Size - 1);
+    auto start = std::chrono::high_resolution_clock::now();
 	for (int i = 0; i < COUNT; i++)
 		heapsort(Tab[i],0, Size-1);
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    std::cout << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 }
 template < typename T, int Size >
 void Tables<T, Size>::IntroSort() {
-	introsort(Tab[1], 0, Size-1);
-	/*for (int i = 0; i < COUNT; i++)
-		introsort(Tab[i], 0, Size-1);*/
+    auto start = std::chrono::high_resolution_clock::now();
+    for (int i = 0; i < COUNT; i++) {
+        introsort(Tab[i], 0, Size - 1);
+    }
+    auto stop = std::chrono::high_resolution_clock::now();
+    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    std::cout << "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 }
 
 
 template < typename T, int Size >
 void Tables<T, Size>::isSorted() {
 	for (int i = 0; i < COUNT; i++) {
-		std::cout << i << ".\t";
 		issorted(Tab[i], 0, Size - 1);
 	}
 }

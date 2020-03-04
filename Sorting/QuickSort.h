@@ -2,7 +2,7 @@
 #include <utility>
 template < typename T>
 int division(T Table[], int first, int last) {
-    int pivot = (last - first) / 2 + first;
+    int pivot = (last + first) / 2;//(last - first) / 2 + first;
     T piv = Table[pivot];
     int l = first, r = last;
     while (true) {
