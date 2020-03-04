@@ -127,12 +127,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Class.hh" />
+    <ClInclude Include="Driver.h" />
     <ClInclude Include="HeapSort.h" />
     <ClInclude Include="IntroSort.h" />
     <ClInclude Include="IsSorted.h" />
     <ClInclude Include="MergeSort.h" />
     <ClInclude Include="QuickSort.h" />
     <ClInclude Include="Template.h" />
+    <ClInclude Include="Times.h" />
     <ClInclude Include="TypesOfTables.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

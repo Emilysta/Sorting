@@ -6,8 +6,10 @@
 #include <iostream>
 #include <chrono>
 #define COUNT 100
+#define SIZETOTEST 15
+
 template < typename T, int Size>
-class Tables {
+class Tables{
   T** Tab=new T*[COUNT];
   //T Tab[COUNT][Size];
   public:
@@ -23,17 +25,36 @@ class Tables {
   void HeapSort();
   void IntroSort();
   void isSorted();
+  void CopyTo(T **tableToCopy);
+  void CopyFrom(T** tableToCopy);
   };
 
 template < typename T , int Size >
 Tables<T, Size>::Tables(){
-    //for(int i=0;i<COUNT;i++)
-    //    for(int j=0;j<Size;j++)
-    //        Tab[i][j]=rand();
     for (int i = 0; i < COUNT; i++) {
         Tab[i] = new T[Size];
         for (int j = 0; j < Size; j++) {
             Tab[i][j] = rand();
+        }
+    }
+
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::CopyTo(T **tableToCopy) {
+    for (int i = 0; i < COUNT; i++) {
+        for (int j = 0; j < Size; j++) {
+            tableToCopy[i][j] = Tab[i][j];
+        }
+    }
+
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::CopyFrom(T** tableToCopy) {
+    for (int i = 0; i < COUNT; i++) {
+        for (int j = 0; j < Size; j++) {
+            Tab[i][j]=tableToCopy[i][j];
         }
     }
 
@@ -52,7 +73,6 @@ Tables<T, Size>::~Tables() {
         delete[] Tab[i];
     delete[] Tab;
 }
-
 
 template < typename T , int Size >
 void Tables<T, Size>::Show(){
@@ -94,6 +114,7 @@ void Tables<T, Size>::HeapSort() {
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
     std::cout << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 }
+
 template < typename T, int Size >
 void Tables<T, Size>::IntroSort() {
     auto start = std::chrono::high_resolution_clock::now();
@@ -105,10 +126,10 @@ void Tables<T, Size>::IntroSort() {
     std::cout << "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 }
 
-
 template < typename T, int Size >
 void Tables<T, Size>::isSorted() {
 	for (int i = 0; i < COUNT; i++) {
 		issorted(Tab[i], 0, Size - 1);
 	}
 }
+

@@ -1,66 +1,87 @@
 #include <iostream>
 #include <time.h>
 #include "TypesOfTables.h"
-#include "HeapSort.h"
-#include "QuickSort.h"
-#include "MergeSort.h"
-void menu() {
+#include "Driver.h"
+#include "Times.h"
+void menu2() {
     std::cout << "1.Quicksort\n";
     std::cout << "2.Mergesort\n";
     std::cout << "3.Heapsort\n";
 	std::cout << "4.Introsort\n";
-    std::cout << "5.End\n";
+    std::cout << "0.End\n";
+}
+void menu1() {
+    std::cout << "1.Test\n";
+    std::cout << "2.Times\n";
+    std::cout << "3.TestOnOneArray\n";
+    std::cout << "0.End\n";
 }
 
 /**************************************************************************************************/
 int main() {
     std::srand( (unsigned int)(time(nullptr)) );
-    Tables1M TabsToSort; //to sort
-    //TabsToSort.Show();
-    //TabsToSort.Generate();
-    
-    int option;
-    menu();
-    std::cout << "Choose an option: ";
-    std::cin >> option;
-
-    while (option != 5) {
-        switch (option)
-        {
-        case 1: {
-            TabsToSort.QuickSort();
-			TabsToSort.isSorted();
-            std::cout << std::endl;
+    int exit;
+    int exit2;
+    do {
+        menu1();
+        std::cout << "choose:";
+        std::cin >> exit;
+        switch (exit) {
+        case 1: Driver();
             break;
-            }
-        case 2: {
-            TabsToSort.MergeSort();
-			TabsToSort.isSorted();
-            std::cout << std::endl;
+        case 2: Times();
             break;
-            }
         case 3: {
-            TabsToSort.HeapSort();
-			TabsToSort.isSorted();
-            std::cout << std::endl;
+            do {
+                Tables10k TabsToSort;
+                menu2();
+                std::cout << "choose:";
+                std::cin >> exit2;
+                switch (exit2)
+                {
+                case 1: {
+                    TabsToSort.QuickSort();
+                    TabsToSort.isSorted();
+                    std::cout << std::endl;
+                    break;
+                }
+                case 2: {
+                    TabsToSort.MergeSort();
+                    TabsToSort.isSorted();
+                    std::cout << std::endl;
+                    break;
+                }
+                case 3: {
+                    TabsToSort.HeapSort();
+                    TabsToSort.isSorted();
+                    std::cout << std::endl;
+                    break;
+                }
+                case 4: {
+                    TabsToSort.IntroSort();
+                    TabsToSort.isSorted();
+                    std::cout << std::endl;
+                    break;
+                }
+                case 0: break;
+                default: {
+                    std::cout << "Wrong option! ";
+                    break;
+                }
+                       break;
+                }
+            } while (exit2 != 0);
             break;
-            }
-		case 4: {
-			TabsToSort.IntroSort();
-			TabsToSort.isSorted();
-			std::cout << std::endl;
-			break;
-		}
-        case 5: break;
+        }
+        case 0: {
+            std::cout << "Ending program...";
+            break;
+        }
         default: {
             std::cout << "Wrong option! ";
             break;
-            }
-
         }
-        menu();
-        std::cout << "Choose again: ";
-        std::cin >> option;
-    }
+        }
+    } while (exit != 0);
     return 0;
 }
