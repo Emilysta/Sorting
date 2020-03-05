@@ -10,7 +10,7 @@ void sort(T tableToSort,int maxDepth, int first, int last) {
 	int n = last - first + 1;
 	int pivot;
 	if (n<=1) {
-		return;//quicksort(tableToSort, first, last);
+		return;// quicksort(tableToSort, first, last);
 	}
 	else if (maxDepth == 0) {
 		heapsort(tableToSort, first, last);

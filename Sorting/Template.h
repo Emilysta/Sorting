@@ -5,7 +5,9 @@
 #include "IsSorted.h"
 #include <iostream>
 #include <chrono>
-#define COUNT 1
+#include <fstream>
+
+#define COUNT 100
 #define SIZETOTEST 15
 
 template < typename T, int Size>
@@ -87,43 +89,55 @@ void Tables<T, Size>::Show(){
 
 template < typename T , int Size >
 void Tables<T, Size>::QuickSort(){
+	std::ofstream myFile;
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
     auto start = std::chrono::high_resolution_clock::now();
     for(int i=0;i<COUNT;i++)
         quicksort(Tab[i],0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << "QuickSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "QuickSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+	myFile.close();
 }
 
 template < typename T, int Size >
 void Tables<T, Size>::MergeSort() {
+	std::ofstream myFile;
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
     auto start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < COUNT; i++)
         mergesort(Tab[i], 0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << "MergeSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "MergeSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+	myFile.close();
 }
 
 template < typename T, int Size >
 void Tables<T, Size>::HeapSort() {
+	std::ofstream myFile;
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
     auto start = std::chrono::high_resolution_clock::now();
 	for (int i = 0; i < COUNT; i++)
 		heapsort(Tab[i],0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+	myFile.close();
 }
 
 template < typename T, int Size >
 void Tables<T, Size>::IntroSort() {
+	std::ofstream myFile;
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
     auto start = std::chrono::high_resolution_clock::now();
     for (int i = 0; i < COUNT; i++) {
         introsort(Tab[i], 0, Size - 1);
     }
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    std::cout << "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+	myFile.close();
 }
 
 template < typename T, int Size >

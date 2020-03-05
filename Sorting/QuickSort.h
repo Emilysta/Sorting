@@ -2,18 +2,17 @@
 #include <utility>
 template < typename T>
 int division(T Table[], int first, int last) {
-    int pivot = (last + first) / 2;//(last - first) / 2 + first;
-    T piv = Table[pivot];
+    T piv = Table[(int)((last + first)/2) ];
     int l = first, r = last;
     while (true) {
         while (Table[l] < piv)
-            l++;
+            ++l;
         while (Table[r] > piv)
-            r--;
+            --r;
         if (l < r) {
             std::swap(Table[l], Table[r]);
-            l++;
-            r--;
+            ++l;
+            --r;
         }
         else
             return r;

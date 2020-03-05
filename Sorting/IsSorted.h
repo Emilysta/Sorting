@@ -10,7 +10,7 @@ void issorted(T tableToSort, int first, int last) {
 	}
 	switch (Sorted) {
 	case true: {
-		std::cout << "Array sorted\n";
+		//std::cout << "Array sorted\n";
 		break;
 	}
 	case false: {
