@@ -10,10 +10,10 @@ void sort(T tableToSort,int maxDepth, int first, int last) {
 	int n = last - first + 1;
 	int pivot;
 	if (n<=1) {
-		quicksort(tableToSort, first, last);
+		return;//quicksort(tableToSort, first, last);
 	}
 	else if (maxDepth == 0) {
-		heapsort(tableToSort, first, last+1);
+		heapsort(tableToSort, first, last);
 	}
 	else {
 		pivot = division(tableToSort, first, last); //Recursive division with returning pivot

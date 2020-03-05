@@ -5,7 +5,7 @@
 #include "IsSorted.h"
 #include <iostream>
 #include <chrono>
-#define COUNT 100
+#define COUNT 1
 #define SIZETOTEST 15
 
 template < typename T, int Size>

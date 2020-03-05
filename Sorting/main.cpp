@@ -26,6 +26,7 @@ int main() {
         menu1();
         std::cout << "choose:";
         std::cin >> exit;
+		system("cls");
         switch (exit) {
         case 1: Driver();
             break;
@@ -33,7 +34,7 @@ int main() {
             break;
         case 3: {
             do {
-                Tables10k TabsToSort;
+                Tables1M TabsToSort;
                 menu2();
                 std::cout << "choose:";
                 std::cin >> exit2;
@@ -69,8 +70,9 @@ int main() {
                     break;
                 }
                        break;
-                }
+				} 
             } while (exit2 != 0);
+			system("cls");
             break;
         }
         case 0: {
