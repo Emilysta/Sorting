@@ -7,7 +7,7 @@
 
 template < typename T>
 void sortFragment(T** array, int size, float percent) {
-	for (int i = 0; i < 100; i++) {
+	for (int i = 0; i < COUNT; i++) {
 		quicksort(array[i], 0, (int)(size * percent - 1));
 	}
 }
@@ -16,6 +16,7 @@ template < typename T, int size>
 void times(Tables<T,size>* arr) {
 	float percent[] = {0.25,0.5,0.75,0.95,0.99,0.997 }; 
 	T** temp = new T*[COUNT];
+	cout << size;
 
 	for (int i = 0; i < COUNT; i++) { //building arrays of right sizes
 		temp[i] = new T[size];

@@ -137,6 +137,7 @@ void Tables<T, Size>::IntroSort() {
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
     myFile << "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+	std::cout<< "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
 }
 
