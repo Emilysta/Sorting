@@ -6,6 +6,7 @@
 #include <iostream>
 #include <chrono>
 #include <fstream>
+//std::ofstream myFile;
 
 #define COUNT 100
 #define SIZETOTEST 15
@@ -29,6 +30,9 @@ class Tables{
   void isSorted();
   void CopyTo(T **tableToCopy);
   void CopyFrom(T** tableToCopy);
+  void SortFragment(float percent);
+  void Reverse();
+  void isReverseSorted();
   };
 
 template < typename T , int Size >
@@ -96,7 +100,7 @@ void Tables<T, Size>::QuickSort(){
         quicksort(Tab[i],0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    myFile << "QuickSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "QuickSort;" << Size << ";" << duration.count() << "\n";
 	myFile.close();
 }
 
@@ -109,7 +113,7 @@ void Tables<T, Size>::MergeSort() {
         mergesort(Tab[i], 0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    myFile << "MergeSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "MergeSort;" << Size << ";" << duration.count() << "\n";
 	myFile.close();
 }
 
@@ -122,7 +126,7 @@ void Tables<T, Size>::HeapSort() {
 		heapsort(Tab[i],0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    myFile << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "HeapSort;" << Size << ";" << duration.count() << "\n";
 	myFile.close();
 }
 
@@ -136,7 +140,7 @@ void Tables<T, Size>::IntroSort() {
     }
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
-    myFile << "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
+    myFile << "IntroSort;" << Size << ";" << duration.count() << "\n";
 	std::cout<< "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
 }
@@ -146,5 +150,26 @@ void Tables<T, Size>::isSorted() {
 	for (int i = 0; i < COUNT; i++) {
 		issorted(Tab[i], 0, Size - 1);
 	}
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::SortFragment(float percent) {
+    for (int i = 0; i < COUNT; i++) {
+        quicksort(Tab[i], 0, (int)(Size * percent - 1));
+    }
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::Reverse() {
+    for (int i = 0; i < COUNT; i++) {
+        quicksortReverse(Tab[i], 0, Size - 1);
+    }
+}
+
+template < typename T, int Size >
+void Tables<T, Size>::isReverseSorted() {
+    for (int i = 0; i < COUNT; i++) {
+        isreversesorted(Tab[i], 0, Size - 1);
+    }
 }
 

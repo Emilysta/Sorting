@@ -3,20 +3,19 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+//std::ofstream myFile;
 
-
-template < typename T>
-void sortFragment(T** array, int size, float percent) {
-	for (int i = 0; i < COUNT; i++) {
-		quicksort(array[i], 0, (int)(size * percent - 1));
-	}
-}
+//template < typename T>
+//void sortFragment(T** array, int size, float percent) {
+//	for (int i = 0; i < COUNT; i++) {
+//		quicksort(array[i], 0, (int)(size * percent - 1));
+//	}
+//}
 
 template < typename T, int size>
 void times(Tables<T,size>* arr) {
 	float percent[] = {0.25,0.5,0.75,0.95,0.99,0.997 }; 
 	T** temp = new T*[COUNT];
-	cout << size;
 
 	for (int i = 0; i < COUNT; i++) { //building arrays of right sizes
 		temp[i] = new T[size];
@@ -27,39 +26,73 @@ void times(Tables<T,size>* arr) {
 		std::cout << "err";
 	}
 	arr->CopyTo(temp);
-	myFile << "sorting array that is not sorted " << std::endl;
+	myFile << "Percent of sorted array;Name;Size;Time[ms]"<<std::endl<<"0;";
+	myFile.close();
 	arr->QuickSort();
 	for (int i = 0; i < 6; i++) {
-		myFile << "percent of sorted array: " << percent[i] << std::endl;
-		sortFragment(temp, size, percent[i]);
+		myFile.open("Dane.txt", std::ios::out | std::ios::app);
+		myFile << percent[i] <<";";
+		myFile.close();
 		arr->CopyFrom(temp);
+		arr->SortFragment(percent[i]);
 		arr->QuickSort();
 		arr->isSorted();
 	}
-	myFile << std::endl;
+	arr->CopyFrom(temp);
+	arr->Reverse();
+	arr->isReverseSorted();
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
+	myFile << "Reverse;";
+	myFile.close();
+	arr->QuickSort();
+	arr->isSorted();
 
-	arr->CopyTo(temp);
-	myFile << "sorting array that is not sorted " << std::endl;
+	arr->CopyFrom(temp);
+	//myFile << std::endl;
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
+	myFile << "0;";
+	myFile.close();
 	arr->MergeSort();
 	for (int i = 0; i < 6; i++) {
-		myFile << "percent of sorted array: " << percent[i] << std::endl;
-		sortFragment(temp, size, percent[i]);
+		myFile.open("Dane.txt", std::ios::out | std::ios::app);
+		myFile << percent[i] << ";";
+		myFile.close();
 		arr->CopyFrom(temp);
+		arr->SortFragment(percent[i]);
 		arr->MergeSort();
 		arr->isSorted();
 	}
-	myFile << std::endl;
+	arr->CopyFrom(temp);
+	arr->Reverse();
+	arr->isReverseSorted();
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
+	myFile << "Reverse;";
+	myFile.close();
+	arr->MergeSort();
+	arr->isSorted();
 
-	arr->CopyTo(temp);
-	myFile << "sorting array that is not sorted " << std::endl;
+	arr->CopyFrom(temp);
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
+	myFile << "0;";
+	myFile.close();
 	arr->IntroSort();
 	for (int i = 0; i < 6; i++) {
-		myFile << "percent of sorted array: " << percent[i] << std::endl;
-		sortFragment(temp, size, percent[i]);
+		myFile.open("Dane.txt", std::ios::out | std::ios::app);
+		myFile << percent[i] << ";";
+		myFile.close();
 		arr->CopyFrom(temp);
+		arr->SortFragment(percent[i]);
 		arr->IntroSort();
 		arr->isSorted();
 	}
+	arr->CopyFrom(temp);
+	arr->Reverse();
+	arr->isReverseSorted();
+	myFile.open("Dane.txt", std::ios::out | std::ios::app);
+	myFile << "Reverse;";
+	myFile.close();
+	arr->IntroSort();
+	arr->isSorted();
 	myFile << std::endl;
 
 	myFile.close();

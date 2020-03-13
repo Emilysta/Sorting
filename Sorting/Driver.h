@@ -18,8 +18,8 @@ void Driver() {
     std::cout << std::endl;
 
     std::cout << "QuickSort test: ";
-    quicksort(arrayToTest, 0, SIZETOTEST - 1);
-    issorted(arrayToTest, 0, SIZETOTEST - 1);
+    quicksortReverse(arrayToTest, 0, SIZETOTEST - 1);
+    //issorted(arrayToTest, 0, SIZETOTEST - 1);
    
 	std::cout << "Sorted array:  ";
 	for (int i = 0; i < SIZETOTEST; i++) {
