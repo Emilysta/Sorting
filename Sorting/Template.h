@@ -96,7 +96,7 @@ void Tables<T, Size>::QuickSort(){
     for(int i=0;i<COUNT;i++)
         quicksort(Tab[i],0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     myFile << "QuickSort;" << Size << ";" << duration.count() << "\n";
 	std::cout << "QuickSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
@@ -110,7 +110,7 @@ void Tables<T, Size>::MergeSort() {
     for (int i = 0; i < COUNT; i++)
         mergesort(Tab[i], 0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     myFile << "MergeSort;" << Size << ";" << duration.count() << "\n";
 	std::cout << "MergeSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
@@ -124,7 +124,7 @@ void Tables<T, Size>::HeapSort() {
 	for (int i = 0; i < COUNT; i++)
 		heapsort(Tab[i],0, Size-1);
     auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     myFile << "HeapSort;" << Size << ";" << duration.count() << "\n";
 	std::cout << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
@@ -139,7 +139,7 @@ void Tables<T, Size>::IntroSort() {
         introsort(Tab[i], 0, Size - 1);
     }
     auto stop = std::chrono::high_resolution_clock::now();
-    auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+    auto duration = std::chrono::duration_cast<std::chrono::microseconds>(stop - start);
     myFile << "IntroSort;" << Size << ";" << duration.count() << "\n";
 	std::cout<< "IntroSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();

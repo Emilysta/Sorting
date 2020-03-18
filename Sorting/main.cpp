@@ -4,6 +4,7 @@
 #include "Driver.h"
 #include "Times.h"
 void menu2() {
+	std::cout << "Test on Tables : 100 x 1 000 000\n";
     std::cout << "1.Quicksort\n";
     std::cout << "2.Mergesort\n";
     std::cout << "3.Heapsort\n";
@@ -13,7 +14,7 @@ void menu2() {
 void menu1() {
     std::cout << "1.Test\n";
     std::cout << "2.Times\n";
-    std::cout << "3.TestOnOneArray\n";
+    std::cout << "3.Test On 1 000 00 Arrays\n";
     std::cout << "0.End\n";
 }
 

@@ -25,7 +25,7 @@ void times(Tables<T,size>* arr) {
 		std::cout << "err";
 	}
 	arr->CopyTo(temp);
-	myFile << "Percent of sorted array;Name;Size;Time[ms]"<<std::endl<<"0;";
+	myFile << "Percent of sorted array;Name;Size;Time[micros]"<<std::endl<<"0;";
 	myFile.close();
 	arr->QuickSort();
 	for (int i = 0; i < 6; i++) {
