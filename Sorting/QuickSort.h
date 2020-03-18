@@ -29,6 +29,7 @@ void  quicksort(T Table[], int first, int last){
         quicksort(Table, pivot + 1, last);
     }
 }
+
 template < typename T >
 int divisionReverse(T Table[], int first, int last) {
     T piv = Table[(int)((last + first) / 2)];

@@ -1,14 +1,14 @@
 #pragma once
 template < typename T>
-void issorted(T tableToSort, int first, int last) {
+void issorted(T tableToSort, int first, int last) { //information only when array isn't sorted
 	int size = last - first + 1;
-	bool Sorted = true;
+	bool sorted = true;
 	for (int i = 0; i < size-1; ++i) {
 		if (tableToSort[i] > tableToSort[i + 1]) {
-			Sorted = false;
+			sorted = false;
 		}
 	}
-	switch (Sorted) {
+	switch (sorted) {
 	case true: {
 		//std::cout << "Array sorted\n";
 		break;
@@ -19,18 +19,19 @@ void issorted(T tableToSort, int first, int last) {
 	}
 	}
 }
+
 template <typename T>
-void isreversesorted(T tableToSort, int first, int last) {
+void isreversesorted(T tableToSort, int first, int last) { //information only when array isn't sorted
 	int size = last - first + 1;
-	bool Sorted = true;
+	bool sorted = true;
 	for (int i = 0; i < size - 1; ++i) {
 		if (tableToSort[i] < tableToSort[i + 1]) {
-			Sorted = false;
+			sorted = false;
 		}
 	}
-	switch (Sorted) {
+	switch (sorted) {
 	case true: {
-		//std::cout << "Array sorted\n";
+		//std::cout << "Array sorted\n"; 
 		break;
 	}
 	case false: {

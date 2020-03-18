@@ -18,8 +18,8 @@ void Driver() {
     std::cout << std::endl;
 
     std::cout << "QuickSort test: ";
-    quicksortReverse(arrayToTest, 0, SIZETOTEST - 1);
-    //issorted(arrayToTest, 0, SIZETOTEST - 1);
+    quicksort(arrayToTest, 0, SIZETOTEST - 1);
+	issorted(arrayToTest, 0, SIZETOTEST - 1);
    
 	std::cout << "Sorted array:  ";
 	for (int i = 0; i < SIZETOTEST; i++) {
@@ -78,6 +78,25 @@ void Driver() {
     std::cout << "IntroSort test: ";
     introsort(arrayToTest, 0, SIZETOTEST - 1);
     issorted(arrayToTest, 0, SIZETOTEST - 1);
+
+	std::cout << "Sorted array:  ";
+	for (int i = 0; i < SIZETOTEST; i++) {
+		std::cout << arrayToTest[i] << "  ";
+	}
+	std::cout << std::endl;
+	std::cout << std::endl;
+
+	std::cout << "Array to test:  ";
+	for (int j = 0; j < SIZETOTEST; j++) {
+		arrayToTest[j] = rand() % 100;
+		std::cout << arrayToTest[j] << "  ";
+	}
+
+	std::cout << std::endl;
+
+	std::cout << "ReverseSort test: ";
+	quicksortReverse(arrayToTest, 0, SIZETOTEST - 1);
+	isreversesorted(arrayToTest, 0, SIZETOTEST - 1);
 
 	std::cout << "Sorted array:  ";
 	for (int i = 0; i < SIZETOTEST; i++) {

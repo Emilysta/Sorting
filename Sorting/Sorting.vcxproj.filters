@@ -20,9 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class.hh">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="MergeSort.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>

@@ -126,7 +126,6 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Class.hh" />
     <ClInclude Include="Driver.h" />
     <ClInclude Include="HeapSort.h" />
     <ClInclude Include="IntroSort.h" />

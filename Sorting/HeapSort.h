@@ -25,7 +25,6 @@ void heapsort(T* arr, int start, int end) {
     T* temp = new int[end - start];
     for (int i = 0; i < end - start; i++) {
         temp[i] = arr[i + start];
-        //std::cout << temp[i] << "=" << arr[i + start] << std::endl;
     }
 
     for (int i = (end - start) / 2 - 1; i >= 0; --i) {

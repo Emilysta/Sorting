@@ -6,7 +6,7 @@
 #include <iostream>
 #include <chrono>
 #include <fstream>
-//std::ofstream myFile;
+
 
 #define COUNT 100
 #define SIZETOTEST 15
@@ -14,13 +14,10 @@
 template < typename T, int Size>
 class Tables{
   T** Tab=new T*[COUNT];
-  //T Tab[COUNT][Size];
+
   public:
-  //constructor
   Tables();
-  //destructor
   ~Tables();
-  //lets show these arrays/tables
   void Show();
   void Generate();
   void QuickSort();
@@ -101,6 +98,7 @@ void Tables<T, Size>::QuickSort(){
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
     myFile << "QuickSort;" << Size << ";" << duration.count() << "\n";
+	std::cout << "QuickSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
 }
 
@@ -114,6 +112,7 @@ void Tables<T, Size>::MergeSort() {
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
     myFile << "MergeSort;" << Size << ";" << duration.count() << "\n";
+	std::cout << "MergeSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
 }
 
@@ -127,6 +126,7 @@ void Tables<T, Size>::HeapSort() {
     auto stop = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
     myFile << "HeapSort;" << Size << ";" << duration.count() << "\n";
+	std::cout << "HeapSort, sizes:" << Size << " time:" << duration.count() << "ms\n";
 	myFile.close();
 }
 

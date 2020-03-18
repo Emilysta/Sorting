@@ -25,6 +25,6 @@ void sort(T tableToSort,int maxDepth, int first, int last) {
 template < typename T>
 void introsort(T tableToSort, int first, int last) {
 	int size = last - first + 1;
-	int maxDepth = (int)(log(size)*2);//"2" that's  standard also can choose anything else
+	int maxDepth = (int)(log(size)*2);//"2" that's standard, also can choose anything else
 	sort(tableToSort, maxDepth, first, last);
 }

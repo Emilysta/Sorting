@@ -3,7 +3,6 @@
 #include <iostream>
 #include <fstream>
 #include <string>
-//std::ofstream myFile;
 
 //template < typename T>
 //void sortFragment(T** array, int size, float percent) {
@@ -48,7 +47,6 @@ void times(Tables<T,size>* arr) {
 	arr->isSorted();
 
 	arr->CopyFrom(temp);
-	//myFile << std::endl;
 	myFile.open("Dane.txt", std::ios::out | std::ios::app);
 	myFile << "0;";
 	myFile.close();
@@ -121,6 +119,6 @@ void Times() {
 	times(&arr500k);
 	std::cout << "Saving..." << std::endl;
 	times(&arr1M);
-	std::cout << "Saved" << std::endl;
+	std::cout << "Saved times to file" << std::endl;
 
 }
