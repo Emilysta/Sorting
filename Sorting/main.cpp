@@ -14,7 +14,7 @@ void menu2() {
 void menu1() {
     std::cout << "1.Test\n";
     std::cout << "2.Times\n";
-    std::cout << "3.Test On 1 000 00 Arrays\n";
+    std::cout << "3.Test On 1 000 000 Arrays\n";
     std::cout << "0.End\n";
 }
 

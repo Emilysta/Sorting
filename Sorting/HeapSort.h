@@ -2,10 +2,10 @@
 #include <utility>
 template < typename T>
 
-void setMaxHeap(T arr, int size, int root) {
-    int largest = root;
-    int left = 2 * root + 1;
-    int right = 2 * root + 2;
+void setMaxHeap(T arr, int size, int parent) {
+    int largest = parent;
+    int left = 2 * parent + 1;
+    int right = 2 * parent + 2;
 
     if (left < size && arr[left] > arr[largest]) {
         largest = left;
@@ -13,30 +13,30 @@ void setMaxHeap(T arr, int size, int root) {
     if (right < size && arr[right] > arr[largest]) {
         largest = right;
     }
-    if (largest != root) {
-        std::swap(arr[root],arr[largest]);
+    if (largest != parent) {
+        std::swap(arr[parent],arr[largest]);
         setMaxHeap(arr, size, largest);
     }
 }
 template < typename T>
-void heapsort(T* arr, int start, int end) {
-    ++end;
+void heapsort(T* arr, int first, int last) {
+    ++last;
 
-    T* temp = new int[end - start];
-    for (int i = 0; i < end - start; i++) {
-        temp[i] = arr[i + start];
+    T* temp = new int[last - first];
+    for (int i = 0; i < last - first; i++) {
+        temp[i] = arr[i + first];
     }
 
-    for (int i = (end - start) / 2 - 1; i >= 0; --i) {
-        setMaxHeap(temp, (end - start), i);
+    for (int i = (last - first) / 2 - 1; i >= 0; --i) {
+        setMaxHeap(temp, (last - first), i);
     }
-    for (int i = (end - start) - 1; i >= 0; --i) {
+    for (int i = (last - first) - 1; i >= 0; --i) {
         std::swap(temp[0],temp[i]);
         setMaxHeap(temp, i, 0);
     }
 
-    for (int i = 0; i < end - start; i++) {
-        arr[i + start] = temp[i];
+    for (int i = 0; i < last - first; i++) {
+        arr[i + first] = temp[i];
     }
     delete[] temp;
 }
